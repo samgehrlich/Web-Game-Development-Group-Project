@@ -1,0 +1,9 @@
+*, *::after, *::before, *::backdrop {
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    margin: 0; 
+    background-color: hsl(200, 50%, 20%);
+}
