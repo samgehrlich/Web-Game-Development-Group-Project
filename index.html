@@ -1,6 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-VA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Ping Pong</title>
+        
         <script type="text/javascript" src="phaser.min.js"></script>
         <script type="text/javascript" src="LoadScene.js"></script>
         <script type="text/javascript" src="PlayScene.js"></script>
@@ -9,6 +15,22 @@
         <script type="text/javascript" src="game.js"></script>
     </head>
     <body>
+
+        <div class="score-board">
+            <div id="playerScore">0</div>
+            <div id="cpuScore">0</div>
+        </div>
+
+        <div class="ball" id="ball">
+        </div>
+
+        <div class="paddleLeft" id="playerPaddle">
+        </div>
+
+        <div class="paddleRight" id="cpuPaddle">
+        </div>
+
+        <script src="script.js" type="module"></script>
 
     </body>
 </html>
