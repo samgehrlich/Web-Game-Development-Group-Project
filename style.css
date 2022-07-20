@@ -5,5 +5,17 @@
 body {
     overflow: hidden;
     margin: 0; 
-    background-color: hsl(200, 50%, 20%);
 }
+
+body, html {
+    height: 100%;
+}
+
+#nippertPic {
+    background-image: url(nippert.png);
+    background-repeat: no-repeat;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
