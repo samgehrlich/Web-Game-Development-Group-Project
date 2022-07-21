@@ -19,8 +19,10 @@ const config = {
 };
 
 let game = new Phaser.Game(config);
-
+let firstPlayer;
+let secondPlayer;
 let ballBounce;
+
 
 function preload() {
     this.load.image('theBalls', 'ball.png');
