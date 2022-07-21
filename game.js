@@ -17,8 +17,8 @@ const config = {
         }
     }
 };
-
 let game = new Phaser.Game(config);
+let beginPong = false;
 let firstPlayer;
 let secondPlayer;
 let ballBounce;
@@ -37,6 +37,8 @@ function create() {
     ); 
     ballBounce.setCollideWorldBounds(true);
 
+
+    ballBounce.setBounce(1, 1);
     firstPlayer = this.physics.add.sprite(
         this.physics.world.bounds.width - (ballBounce.body.width / 2 + 1),
         this.physics.world.bounds.height / 2,
@@ -51,9 +53,13 @@ function create() {
 }
 
 function update() {
+
+    if (!beginPong){
     let x = 200;
     let y = 200;
     ballBounce.setVelocityX(x);
     ballBounce.setVelocityY(y);
+    beginPong = true;
+    }
 }
 
