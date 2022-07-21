@@ -18,21 +18,28 @@ const config = {
     }
 };
 
-const game = new Phaser.Game(config);
+let game = new Phaser.Game(config);
 
 let ballBounce;
 
 function preload() {
-    this.load.image('balls', 'ball.png');
-    this.load.image('paddles', 'paddles.png');
+    this.load.image('theBalls', 'ball.png');
+    this.load.image('thePaddles', 'paddle.png');
 }
 
 function create() {
     ballBounce = this.physics.add.sprite(
         this.physics.world.bounds.width / 2,
         this.physics.world.bounds.height / 2,
-        'balls'
+        'theBalls'
     ); 
+
+    firstPlayer = this.physics.add.sprite(
+        this.physics.world.bounds.width,
+        this.physics.world.bounds.height / 2,
+        'thePaddles'
+    )
+    
 }
 
 function update() {
