@@ -1,26 +1,21 @@
-*, *::after, *::before, *::backdrop {
-    box-sizing: border-box;
+html {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
 body {
-    overflow: hidden;
-    margin: 0; 
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
-body, html {
-    height: 100%;
-    margin: 0 auto;
-    padding: 0;
-    width: 100%;
-    height: 100%;
+#game {
+  margin: 10px auto;
+  padding: 0;
+  width: 800px;
+  height: 640px;
 }
-
-#gameLayout {
-    margin: 10px auto;
-    padding: 0;
-    width: 800px;
-    height: 640px;
-}
-
-
 
