@@ -35,6 +35,7 @@ function create() {
         this.physics.world.bounds.height / 2,
         'theBalls'
     ); 
+    ballBounce.setCollideWorldBounds(true);
 
     firstPlayer = this.physics.add.sprite(
         this.physics.world.bounds.width - (ballBounce.body.width / 2 + 1),
