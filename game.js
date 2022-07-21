@@ -35,7 +35,7 @@ function create() {
     ); 
 
     firstPlayer = this.physics.add.sprite(
-        this.physics.world.bounds.width,
+        this.physics.world.bounds.width - (ballBounce.body.width / 2 + 1),
         this.physics.world.bounds.height / 2,
         'thePaddles'
     )
