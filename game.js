@@ -51,5 +51,11 @@ function create() {
 
 function update() {
 
+    let startXVelocity = 100;
+    let startYVelocity = 100;
+    ballBounce.setVelocityX(startXVelocity);
+    ballBounce.setVelocityY(startYVelocity);
+
+
 }
 
