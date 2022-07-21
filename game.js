@@ -1,8 +1,8 @@
 const config = {
     type: Phaser.AUTO,
     parent: 'game',
-    width: 800,
-    height: 640,
+    width: 900,
+    height: 740,
     scale: {
         mode: Phaser.Scale.RESIZE,
         autoCenter: Phaser.Scale.CENTER_BOTH
@@ -50,9 +50,9 @@ function create() {
 }
 
 function update() {
-    let startXVelocity = 100;
-    let startYVelocity = 100;
-    ballBounce.setVelocityX(startXVelocity);
-    ballBounce.setVelocityY(startYVelocity);
+    let x = 200;
+    let y = 200;
+    ballBounce.setVelocityX(x);
+    ballBounce.setVelocityY(y);
 }
 
