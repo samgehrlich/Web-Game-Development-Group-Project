@@ -22,11 +22,5 @@ body, html {
     height: 640px;
 }
 
-#nippertPic {
-    background-image: url(nippert.png);
-    background-repeat: no-repeat;
-    height: 100%;
-    background-position: center;
-    background-size: cover;
-}
+
 
