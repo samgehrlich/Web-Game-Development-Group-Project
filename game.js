@@ -35,6 +35,7 @@ function create() {
         this.physics.world.bounds.height / 2,
         'theBalls'
     ); 
+
     ballBounce.setCollideWorldBounds(true);
 
 
@@ -50,6 +51,11 @@ function create() {
         this.physics.world.bounds.height / 2,
         'thePaddles'
     );
+    this.physics.add.collider(ballBounce, firstPlayer);
+    this.physics.add.collider(ballBounce, secondPlayer);
+
+
+    
 }
 
 function update() {
