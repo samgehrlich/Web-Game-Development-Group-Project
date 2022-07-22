@@ -23,6 +23,8 @@ let firstPlayer;
 let secondPlayer;
 let ballBounce;
 
+const PADDLE_SPEED = 300;
+
 
 function preload() {
     this.load.image('theBalls', 'ball.png');
@@ -60,12 +62,37 @@ function create() {
 
 function update() {
 
-    if (!beginPong){
-    let x = 200;
-    let y = 200;
-    ballBounce.setVelocityX(x);
-    ballBounce.setVelocityY(y);
-    beginPong = true;
+    if(!beginPong) {
+        let x = 200;
+        let y = 200;
+        ballBounce.setVelocityX(x);
+        ballBounce.setVelocityY(y);
+        beginPong = true;
     }
+
+    /* Move Player 1 */
+    if(this.input.keyboard.createCursorKeys().up.isDown) {
+        /* Move Up */
+        firstPlayer.setVelocityY(-1 * PADDLE_SPEED);
+    } else if (this.input.keyboard.createCursorKeys().down.isDown) {
+        /* Move Down */
+        firstPlayer.setVelocityY(PADDLE_SPEED);
+    } else {
+        /* Stop Moving */
+        firstPlayer.setVelocityY(0);
+    }
+
+    /* Move Player 2 */
+    if(this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W).isDown) {
+        /* Move Up */
+        secondPlayer.setVelocityY(-1 * PADDLE_SPEED);
+    } else if(this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S).isDown) {
+        /* Move Down */
+        secondPlayer.setVelocityY(PADDLE_SPEED);
+    } else {
+        /* Stop Moving */
+        secondPlayer.setVelocityY(0);
+    }
+
 }
 
