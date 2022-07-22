@@ -17,6 +17,9 @@ const config = {
         }
     }
 };
+
+/*------Values for use------*/
+
 let game = new Phaser.Game(config);
 let beginPong = false;
 let firstPlayer;
@@ -25,11 +28,14 @@ let ballBounce;
 
 const PADDLE_SPEED = 300;
 
+/*----Pre Load-----*/
 
 function preload() {
     this.load.image('theBalls', 'ball.png');
     this.load.image('thePaddles', 'paddle.png');
 }
+
+/*----- Create Ball and Paddles-----*/
 
 function create() {
     ballBounce = this.physics.add.sprite(
@@ -61,6 +67,8 @@ function create() {
 
     
 }
+
+/*------Update The ball and paddle for movement-------*/
 
 function update() {
 
