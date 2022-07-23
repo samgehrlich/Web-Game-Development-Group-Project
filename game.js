@@ -3,6 +3,7 @@ const config = {
     parent: 'game',
     width: 900,
     height: 740,
+    backgroundColor: '#bfcc00',
     scale: {
         mode: Phaser.Scale.RESIZE,
         autoCenter: Phaser.Scale.CENTER_BOTH
@@ -102,6 +103,14 @@ function update() {
     } else {
         /* Stop Moving */
         secondPlayer.setVelocityY(0);
+    }
+
+    if(ballBounce.body.velocity.y > PADDLE_SPEED) {
+        ballBounce.body.setVelocityY(PADDLE_SPEED)
+    }
+
+    if(ballBounce.body.velocity.y < -PADDLE_SPEED) {
+        ballBounce.body.setVelocityY(-PADDLE_SPEED);
     }
 
 }
