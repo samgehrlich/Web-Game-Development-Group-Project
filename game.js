@@ -81,6 +81,21 @@ function update() {
         beginPong = true;
     }
 
+    /*---Ball Touches either side then game over----*/
+
+
+    if (ballBounce.body.x > firstPlayer.body.x) {
+        ballBounce.setVelocityX(0);
+        ballBounce.setVelocityY(0);
+        console.log('The First Player Wins the Game!');
+    }
+
+    if (ballBounce.body.x < secondPlayer.body.x) {
+        console.log('The Second Player Wins the Game!');
+        ballBounce.setVelocityX(0);
+        ballBounce.setVelocityY(0);
+    }
+
     /* Move Player 1 */
     if(this.input.keyboard.createCursorKeys().up.isDown) {
         /* Move Up */
