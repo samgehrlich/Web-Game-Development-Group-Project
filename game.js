@@ -25,6 +25,8 @@ let game = new Phaser.Game(config);
 let beginPong = false;
 let firstPlayer;
 let secondPlayer;
+let firstPlayerWins;
+let secondPlayerWins;
 let ballBounce;
 
 const PADDLE_SPEED = 300;
@@ -66,7 +68,10 @@ function create() {
     this.physics.add.collider(ballBounce, secondPlayer);
 
 
-    
+    firstPlayerWins = this.add.text(this.physics.world.bounds.height / 2, this.physics.world.bounds.width / 2, 'The First Player Has Won The Game!');
+    firstPlayerWins.setVisible(false);
+    secondPlayerWins = this.add.text(this.physics.world.bounds.height / 2, this.physics.world.bounds.width / 2, 'The Second Player Has Won The Game!');
+    secondPlayerWins.setVisible(false);
 }
 
 /*------Update The ball and paddle for movement-------*/
