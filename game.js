@@ -72,10 +72,10 @@ function create() {
 
     firstPlayerWins = this.add.text(this.physics.world.bounds.height / 2, this.physics.world.bounds.width / 2, 'The First Player Has Won The Game!');
     firstPlayerWins.setVisible(false);
-    firstPlayerWins.setOrigin(.3);
+    firstPlayerWins.setOrigin(.2);
     secondPlayerWins = this.add.text(this.physics.world.bounds.height / 2, this.physics.world.bounds.width / 2, 'The Second Player Has Won The Game!');
     secondPlayerWins.setVisible(false);
-    secondPlayerWins.setOrigin(.3);
+    secondPlayerWins.setOrigin(.2);
 }
 
 /*------Update The ball and paddle for movement-------*/
