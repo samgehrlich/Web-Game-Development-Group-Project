@@ -83,8 +83,8 @@ function create() {
 function update() {
 
     if(!beginPong) {
-        let x = 200;
-        let y = 200;
+        let x = 300;
+        let y = 300;
         ballBounce.setVelocityX(x);
         ballBounce.setVelocityY(y);
         beginPong = true;
