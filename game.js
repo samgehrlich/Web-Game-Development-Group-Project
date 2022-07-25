@@ -48,7 +48,7 @@ function create() {
     ); 
 
     ballBounce.setCollideWorldBounds(true);
-
+    
 
     ballBounce.setBounce(1, 1);
     firstPlayer = this.physics.add.sprite(
@@ -57,6 +57,7 @@ function create() {
         'thePaddles'
     );
     firstPlayer.setImmovable(true);
+    firstPlayer.setCollideWorldBounds(true);
     
     secondPlayer = this.physics.add.sprite(
         ballBounce.body.width / 2 + 1,
@@ -64,14 +65,17 @@ function create() {
         'thePaddles'
     );
     secondPlayer.setImmovable(true);
+    secondPlayer.setCollideWorldBounds(true);
     this.physics.add.collider(ballBounce, firstPlayer);
     this.physics.add.collider(ballBounce, secondPlayer);
 
 
     firstPlayerWins = this.add.text(this.physics.world.bounds.height / 2, this.physics.world.bounds.width / 2, 'The First Player Has Won The Game!');
     firstPlayerWins.setVisible(false);
+    firstPlayerWins.setOrigin(.3);
     secondPlayerWins = this.add.text(this.physics.world.bounds.height / 2, this.physics.world.bounds.width / 2, 'The Second Player Has Won The Game!');
     secondPlayerWins.setVisible(false);
+    secondPlayerWins.setOrigin(.3);
 }
 
 /*------Update The ball and paddle for movement-------*/
@@ -92,13 +96,13 @@ function update() {
     if (ballBounce.body.x > firstPlayer.body.x) {
         ballBounce.setVelocityX(0);
         ballBounce.setVelocityY(0);
-        console.log('The First Player Wins the Game!');
+        secondPlayerWins.setVisible(true);
     }
 
     if (ballBounce.body.x < secondPlayer.body.x) {
-        console.log('The Second Player Wins the Game!');
         ballBounce.setVelocityX(0);
         ballBounce.setVelocityY(0);
+        firstPlayerWins.setVisible(true);
     }
 
     /* Move Player 1 */
