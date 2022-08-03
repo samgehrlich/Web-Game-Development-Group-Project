@@ -2,12 +2,12 @@
 const config = {
     type: Phaser.AUTO,
     parent: 'game',
-    width: 1000,
-    height: 547,
+    width: 1097,
+    height: 600,
     backgroundColor: '#FF6F61',
     scale: {
-        mode: Phaser.Scale.RESIZE,
-        autoCenter: Phaser.Scale.CENTER_BOTH
+        //mode: Phaser.Scale.RESIZE,
+        //autoCenter: Phaser.Scale.CENTER_BOTH
     },
     scene: {
        preload, create, update
@@ -149,6 +149,8 @@ function update() {
         /* Stop Moving */
         secondPlayer.setVelocityY(0);
     }
+   
+  
 }
 
 /* Start A New Game */
