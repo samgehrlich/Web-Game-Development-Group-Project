@@ -3,14 +3,16 @@ const config = {
     type: Phaser.AUTO,
     parent: 'game',
     width: 1000,
-    height: 547,
+    height: 700,
     backgroundColor: '#FF6F61',
     scale: {
         mode: Phaser.Scale.RESIZE,
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
     scene: {
-       preload, create, update
+       preload: preload, 
+       create: create, 
+       update: update
     },
     physics: {
         default: 'arcade',
@@ -21,16 +23,16 @@ const config = {
 };
 
 /* Global Constants */
-const HALF_WORLD_WIDTH = 450;
-const HALF_WORLD_HEIGHT = 370;
 const BALL_START_SPEED_X = 400;
 const BALL_START_SPEED_Y = 300;
-const PADDLE_SPEED = 400;
+const PADDLE_SPEED = 500;
 const SCORE_TO_WIN = 11;
 
 /* Global Variables */
 let game = new Phaser.Game(config);
 let gameIsPaused;
+let screenCenterX;
+let screenCenterY;
 let firstPlayer;
 let secondPlayer;
 let firstPlayerScore;
@@ -42,21 +44,29 @@ let ballBounce;
 function preload() {
     this.load.image('theBalls', 'assets/ball.png');
     this.load.image('thePaddles', 'assets/paddle.png');
-    this.load.image('nippert', 'assets/nippert.png');
+    this.load.image('background', 'assets/nippert.jpeg');
     this.load.image('return', 'assets/return.png');
 }
 
 /* Create Scene */
 function create() {
 
-    // Create background
-    this.nippert = this.add.tileSprite(0, 0, config.width, config.height, "nippert");
-    this.nippert.setOrigin(0, 0);
+    /* Set Screen Center */
+    screenCenterX = this.cameras.main.worldView.x + this.cameras.main.width / 2;
+    screenCenterY = this.cameras.main.worldView.y + this.cameras.main.height / 2;
+
+    /* Add Background */
+    let backgroundImage = this.add.image(0, 0, 'background');
+    backgroundImage.displayHeight = this.sys.game.config.height;
+    backgroundImage.scaleX = backgroundImage.scaleY;
+    backgroundImage.y = game.config.height / 2;
+    backgroundImage.x = game.config.width / 2;
+    backgroundImage.x = backgroundImage.displayWidth * 0.4;
 
     /* Create Ball */
     ballBounce = this.physics.add.sprite(
-        HALF_WORLD_WIDTH,
-        HALF_WORLD_HEIGHT,
+        screenCenterX,
+        screenCenterY,
         'theBalls'
     ); 
     ballBounce.setCollideWorldBounds(true);
@@ -65,7 +75,7 @@ function create() {
     /* Create First Player */
     firstPlayer = this.physics.add.sprite(
         ballBounce.body.width / 2 + 1,
-        HALF_WORLD_HEIGHT,
+        screenCenterY,
         'thePaddles'
     );
     firstPlayer.setImmovable(true);
@@ -74,7 +84,7 @@ function create() {
     /* Create Second Player */
     secondPlayer = this.physics.add.sprite(
         this.physics.world.bounds.width - (ballBounce.body.width / 2 + 1),
-        HALF_WORLD_HEIGHT,
+        screenCenterY,
         'thePaddles'
     );
     secondPlayer.setImmovable(true);
@@ -85,16 +95,12 @@ function create() {
     this.physics.add.collider(ballBounce, secondPlayer);
 
     /* Add Scoreboard */
-    scoreboard = this.add.text(HALF_WORLD_HEIGHT, HALF_WORLD_WIDTH, "Game Starting...", {fill: "white"});
+    scoreboard = this.add.text(screenCenterY, screenCenterX, "Click The Button To Start", {fill: "white"});
     
     // add new game button
     this.add.image(390,500, 'return').setInteractive().on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
         startNewGame();
     });
-
-    //Not sure if we need the next two lines below..
-    /* LETS GOOOO :) */ //do we need this line?
-    startNewGame(); //do we need this line?
 }
 
 /* Update Scene */
@@ -175,7 +181,7 @@ function startNewRound() {
     ballBounce.setVelocityY(0);
 
     /* Put The Ball In The Center */
-    ballBounce.setPosition(HALF_WORLD_WIDTH, HALF_WORLD_HEIGHT)
+    ballBounce.setPosition(screenCenterX, screenCenterY)
 
     /* Send The Ball After 2 Seconds (2000 miliseconds) */
     setTimeout(function() {
