@@ -2,8 +2,8 @@
 const config = {
     type: Phaser.AUTO,
     parent: 'game',
-    width: 900,
-    height: 740,
+    width: 1000,
+    height: 547,
     backgroundColor: '#FF6F61',
     scale: {
         mode: Phaser.Scale.RESIZE,
@@ -40,12 +40,18 @@ let ballBounce;
 
 /* Preload Images */
 function preload() {
-    this.load.image('theBalls', 'ball.png');
-    this.load.image('thePaddles', 'paddle.png');
+    this.load.image('theBalls', 'assets/ball.png');
+    this.load.image('thePaddles', 'assets/paddle.png');
+    this.load.image('nippert', 'assets/nippert.png');
+    this.load.image('button', 'assets/button.png');
 }
 
 /* Create Scene */
 function create() {
+
+    // Create background
+    this.nippert = this.add.tileSprite(0, 0, config.width, config.height, "nippert");
+    this.nippert.setOrigin(0, 0);
 
     /* Create Ball */
     ballBounce = this.physics.add.sprite(
@@ -79,10 +85,16 @@ function create() {
     this.physics.add.collider(ballBounce, secondPlayer);
 
     /* Add Scoreboard */
-    scoreboard = this.add.text(HALF_WORLD_HEIGHT, HALF_WORLD_WIDTH, "Game Starting...");
+    scoreboard = this.add.text(HALF_WORLD_HEIGHT, HALF_WORLD_WIDTH, "Game Starting...", {fill: "white"});
+    
+    // add new game button
+    this.add.image(400,300, 'button').setInteractive().on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
+        startNewGame();
+    });
 
-    /* LETS GOOOO :) */
-    startNewGame();
+    //Not sure if we need the next two lines below..
+    /* LETS GOOOO :) */ //do we need this line?
+    startNewGame(); //do we need this line?
 }
 
 /* Update Scene */
