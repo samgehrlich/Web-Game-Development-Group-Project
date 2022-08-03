@@ -43,7 +43,7 @@ function preload() {
     this.load.image('theBalls', 'assets/ball.png');
     this.load.image('thePaddles', 'assets/paddle.png');
     this.load.image('nippert', 'assets/nippert.png');
-    this.load.image('button', 'assets/button.png');
+    this.load.image('return', 'assets/return.png');
 }
 
 /* Create Scene */
@@ -88,7 +88,7 @@ function create() {
     scoreboard = this.add.text(HALF_WORLD_HEIGHT, HALF_WORLD_WIDTH, "Game Starting...", {fill: "white"});
     
     // add new game button
-    this.add.image(400,300, 'button').setInteractive().on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
+    this.add.image(390,500, 'return').setInteractive().on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
         startNewGame();
     });
 
