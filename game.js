@@ -6,8 +6,8 @@ const config = {
     height: 600,
     backgroundColor: '#FF6F61',
     scale: {
-        //mode: Phaser.Scale.RESIZE,
-        //autoCenter: Phaser.Scale.CENTER_BOTH
+        mode: Phaser.Scale.RESIZE,
+        autoCenter: Phaser.Scale.CENTER_BOTH
     },
     scene: {
        preload, create, update
