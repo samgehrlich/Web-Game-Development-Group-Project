@@ -43,7 +43,8 @@ let ballBounce;
 /* Preload Images */
 function preload() {
     this.load.image('theBalls', 'assets/ball.png');
-    this.load.image('thePaddles', 'assets/paddle.png');
+    this.load.image('saucePaddle', 'assets/sauce.png');
+    this.load.image('ridderPaddle', 'assets/desmond-ridder.png');
     this.load.image('background', 'assets/nippert.jpeg');
     this.load.image('return', 'assets/return.png');
 }
@@ -76,7 +77,7 @@ function create() {
     firstPlayer = this.physics.add.sprite(
         ballBounce.body.width / 2 + 1,
         screenCenterY,
-        'thePaddles'
+        'ridderPaddle'
     );
     firstPlayer.setImmovable(true);
     firstPlayer.setCollideWorldBounds(true);
@@ -85,7 +86,7 @@ function create() {
     secondPlayer = this.physics.add.sprite(
         this.physics.world.bounds.width - (ballBounce.body.width / 2 + 1),
         screenCenterY,
-        'thePaddles'
+        'saucePaddle'
     );
     secondPlayer.setImmovable(true);
     secondPlayer.setCollideWorldBounds(true);
