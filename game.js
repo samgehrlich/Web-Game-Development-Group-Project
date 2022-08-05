@@ -96,7 +96,7 @@ function create() {
     this.physics.add.collider(ballBounce, secondPlayer);
 
     /* Add Scoreboard */
-    scoreboard = this.add.text(screenCenterY, screenCenterX, "Click The Button To Start", {fill: "white"});
+    scoreboard = this.add.text(screenCenterY + 80, 80, "Click The Button To Start", {fill: "white"}).setOrigin(0.5, 0.5);
     
     // add new game button
     this.add.image(390,500, 'return').setInteractive().on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
