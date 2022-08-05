@@ -23,8 +23,8 @@ const config = {
 };
 
 /* Global Constants */
-const BALL_START_SPEED_X = 400;
-const BALL_START_SPEED_Y = 300;
+const BALL_START_SPEED_X = 300;
+const BALL_START_SPEED_Y = 250;
 const PADDLE_SPEED = 500;
 const SCORE_TO_WIN = 11;
 
