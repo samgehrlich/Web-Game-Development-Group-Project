@@ -75,7 +75,7 @@ function create() {
 
     /* Create First Player */
     firstPlayer = this.physics.add.sprite(
-        ballBounce.body.width / 2 + 1,
+        40,
         screenCenterY,
         'ridderPaddle'
     );
@@ -84,7 +84,7 @@ function create() {
     
     /* Create Second Player */
     secondPlayer = this.physics.add.sprite(
-        this.physics.world.bounds.width - (ballBounce.body.width / 2 + 1),
+        (screenCenterX * 2) - 40,
         screenCenterY,
         'saucePaddle'
     );
